@@ -1,0 +1,5 @@
+$${
+echo(/feed)
+title(&a&l/Feed Activated,&a&l160 second cd)
+wait(3600t);
+}$$
