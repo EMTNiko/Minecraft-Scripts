@@ -1,0 +1,28 @@
+$${
+//replace Example with the players name capital do not matter also
+//use | = linebreaks to split the names up.
+&staff = "Example|Example|Example"
+&friends = "Example|Example|Example"
+
+UNSET(&staff[])
+UNSET(&friend[])
+//These here make it so any of the people in the varibles come up in the middle
+//of your screen
+IFMATCHES(%JOINEDPLAYER%,"^(%&staff%)$")
+  TITLE(,"&c&lStaff = %JOINEDPLAYER%")
+  echo(/spawn)
+  wait(20t)
+  stop(all)
+//TITLE can be changed between POPUPMESSAGE and LOG to tell you when they are on
+ELSE
+IFMATCHES(%JOINEDPLAYER%,"^(%&friend%)$")
+  TITLE(,"&b&lFriend = %JOINEDPLAYER%")
+//This here \/ is for any random person that joins the server that are not
+//in the varibles pop up in the ACTIONBAR
+ELSE
+  POPUPMESSAGE("&6&l%JOINEDPLAYER%")
+ENDIF
+ENDIF
+ENDIF
+
+}$$
