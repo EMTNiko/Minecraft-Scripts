@@ -1,0 +1,56 @@
+$${
+     if(toggleon)
+         log("disabling");
+         unset(toggleon);
+         stop(all);
+       else;
+          set(@toggleon);
+          log("enabling");
+          
+          //loop
+          DO()
+          
+          //Create another script with a loop of use
+          exec(use script.txt,usescript); 
+          echo(/warp shop);
+          wait(20t);
+          
+          //looks at direction of shop and move
+          //forward
+          look(-45,0,0.2);
+          keydown(forward);
+          wait(20t);
+          keyup(forward);
+          wait(20t);
+          
+          //clicks sell all
+          slotclick(8);
+          key(escape);
+          
+          //warps player to profit shop
+          echo(/pwarp profit shop here);
+          
+          //Pauses actions of script to give time for           
+		  //items to load into chests
+          stop(usescript);
+          wait(200t);
+          
+          //runs script again
+          exec(use script.txt,usescript); 
+          
+          //play around with these numbers
+          //since profit shops go different
+          look(-40,0,0.1);
+          wait(20t);
+          look(40,0,0.8);
+          wait(20t);
+          look(-40,25,0.1);
+          wait(20t);
+          look(40,25,0.8);
+          
+          //sets up loop
+               stop(usescript);
+          loop();
+          endif;
+
+}$$
